@@ -1,17 +1,41 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Agendanny</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let person of persons">
+
+      <button ion-item (click)="editPerson(person)">
+
+        <avatar [email]="person?.contact?.email"
+                [name]="person?.name"
+                [displayType]="'circle'"
+                [size]="40"
+                item-start>
+        </avatar>
+        <h2>{{ person?.name }}</h2>
+        <p>{{ person?.contact?.email }}</p>
+        <p>{{ person?.contact?.phone }}</p>
+        <ion-note item-end>{{ person?.contact?.dateNextContact | date: 'dd/MM/yyyy'}}</ion-note>
+      </button>
+
+      <ion-item-options side="right"
+                        *ngIf="person?.contact?.phone"
+                        (click)="callContact(person?.contact)">
+        <button ion-button color="secondary">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
 </ion-content>
