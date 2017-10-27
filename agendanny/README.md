@@ -24,3 +24,7 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+
+http://ionicframework.com/docs/native/call-number/
+
+http://ionicframework.com/docs/native/date-picker/
