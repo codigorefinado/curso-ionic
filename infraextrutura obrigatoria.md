@@ -10,6 +10,11 @@ Para que seja possível instalar o Ionic, é necessário instalar:
 2 - [Editor de texto](https://www.jetbrains.com/webstorm/download/)
 3 - [ionic cli](http://ionicframework.com/getting-started/)
 
+Opcionalmente instale:
+4 - [Python](https://www.python.org/downloads/)
+5 - [Compilador C](https://github.com/nodejs/node-gyp/issues/629)
+> npm install --global --production windows-build-tools
+
 [Node.js](http://www.nodejs.org) instalada. O Node.js é um ambiente JavaScript multiplataforma disponível para Linux, Mac e Windows. Para instalá-lo, siga as instruções abaixo:
 
 Instalação Node.js no Linux (Ubuntu)
