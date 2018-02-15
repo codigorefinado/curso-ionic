@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {PersonProvider} from '../../providers/person.provider';
 import {CallNumber} from '@ionic-native/call-number';
+import {PersonProvider} from '../../providers/person.provide';
 import {EditPersonPage} from '../edit-person/edit-person';
 
 @Component({
@@ -9,19 +9,31 @@ import {EditPersonPage} from '../edit-person/edit-person';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  persons: Array<Person> = new Array<Person>();
+
+
+  persons: Array<any> = new Array<any>();
 
   constructor(public navCtrl: NavController,
-              public personProvider: PersonProvider,
-              private callNumber: CallNumber) {
-
-
-    this.personProvider.allPersons()
-      .then((persons: Array<Person>) => this.persons = persons);
+              private callNumber: CallNumber,
+              private personProvider: PersonProvider) {
   }
 
-  callContact(contact: Contact) {
-    this.callNumber.callNumber(contact.phone, false);
+  // ngOnInit(): void {
+  //   this.personProvider.allPersons()
+  //     .then((persons: Array<Person>) => this.persons = this.persons);
+  // }
+
+  ionViewWillEnter() {
+    this.personProvider.allPersons()
+      .then((persons: Array<Person>) => {
+
+        this.persons = persons;
+        console.log(this.persons);
+      });
+  }
+
+  callContact(contact: any) {
+    this.callNumber.callNumber(contact.phone, true);
   }
 
   editPerson(person: Person) {

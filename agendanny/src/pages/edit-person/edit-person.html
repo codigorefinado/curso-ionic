@@ -3,16 +3,17 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Alterar contato</ion-title>
+    <ion-title>NewPersonPage</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <form (ngSubmit)="onSubmit(formPerson)" [formGroup]="formPerson">
-    <ion-list>
 
+<ion-content>
+  <form (ngSubmit)="onSubmit(frmPerson)" [formGroup]="frmPerson">
+
+    <ion-list>
       <ion-item>
-        <ion-label stacked>* Nome</ion-label>
+        <ion-label>* Nome</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
 
@@ -21,7 +22,6 @@
           <ion-label stacked>* Telefone</ion-label>
           <ion-input type="text" formControlName="phone"></ion-input>
         </ion-item>
-
 
         <ion-item>
           <ion-label stacked>E-Mail</ion-label>
@@ -37,9 +37,10 @@
           </ion-select>
         </ion-item>
 
-        <ion-item (click)="selectDate()">
+        <ion-item>
           <ion-label stacked>Data do próximo contato</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" min="2017" max="2020-12-31" formControlName="dateNextContact" ></ion-datetime>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="2017" max="2020-12-31"
+                        formControlName="dateNextContact"></ion-datetime>
         </ion-item>
 
         <ion-item>
@@ -47,14 +48,11 @@
           <ion-textarea type="text" formControlName="comentary"></ion-textarea>
         </ion-item>
       </div>
-
     </ion-list>
 
     <div>
-      <button ion-button block type="submit"
-              [disabled]="formPerson.invalid">Salvar
-      </button>
+      <button ion-button block type="submit" [disabled]="frmPerson.invalid">Save</button>
     </div>
-  </form>
 
+  </form>
 </ion-content>

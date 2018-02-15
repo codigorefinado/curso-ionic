@@ -3,39 +3,36 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Agendanny</ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
   <ion-list>
-
     <ion-item-sliding *ngFor="let person of persons">
-
-      <button ion-item (click)="editPerson(person)">
-
+      <ion-item (click)="editPerson(person)">
         <avatar [email]="person?.contact?.email"
-                [name]="person?.name"
+                [name]="person?.nome"
                 [displayType]="'circle'"
-                [size]="40"
+                [size]="'40'"
                 item-start>
         </avatar>
-        <h2>{{ person?.name }}</h2>
-        <p>{{ person?.contact?.email }}</p>
-        <p>{{ person?.contact?.phone }}</p>
-        <ion-note item-end>{{ person?.contact?.dateNextContact | date: 'dd/MM/yyyy'}}</ion-note>
-      </button>
+        <h2>{{person.nome}}</h2>
+        <p>{{ person?.contact?.email}}</p>
+        <p>{{ person?.contact?.phone}}</p>
+      </ion-item>
 
       <ion-item-options side="right"
                         *ngIf="person?.contact?.phone"
                         (click)="callContact(person?.contact)">
         <button ion-button color="secondary">
           <ion-icon name="call"></ion-icon>
+          Ligar
         </button>
       </ion-item-options>
     </ion-item-sliding>
+
   </ion-list>
 
-  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
 </ion-content>
