@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let person of persons">
+      <ion-item (click)="editPerson(person)">
+        <avatar [email]="person?.contact?.email"
+                [name]="person?.nome"
+                [displayType]="'circle'"
+                [size]="'40'"
+                item-start>
+        </avatar>
+        <h2>{{person.nome}}</h2>
+        <p>{{ person?.contact?.email}}</p>
+        <p>{{ person?.contact?.phone}}</p>
+      </ion-item>
+
+      <ion-item-options side="right"
+                        *ngIf="person?.contact?.phone"
+                        (click)="callContact(person?.contact)">
+        <button ion-button color="secondary">
+          <ion-icon name="call"></ion-icon>
+          Ligar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
