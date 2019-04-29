@@ -3,13 +3,13 @@
         <ion-title>{{ action }} Birthday</ion-title>
 
         <ion-buttons slot="end">
-            <ion-button>
+            <ion-button (click)="delete()"> <!-- Ver: https://ionicframework.com/docs/api/button -->
                 <ion-icon name="trash"></ion-icon>
             </ion-button>
         </ion-buttons>
 
         <!--<ion-buttons end *ngIf="!isNew">-->
-        <!--<button ion-button (click)="delete()">--> <!-- antes, ver: https://ionicframework.com/docs/api/button -->
+        <!--<button ion-button (click)="delete()">-->
         <!--<ion-icon name="trash"></ion-icon>-->
         <!--</button>-->
         <!--</ion-buttons>-->
@@ -27,9 +27,12 @@
         </ion-item>
         <ion-item>
             <ion-label>Birthday</ion-label>
-            <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [value]="'2012-12-19T06:01:17.171Z'"></ion-datetime>
+            <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [value]="'2012-12-19T06:01:17.171Z'">
+            </ion-datetime>
         </ion-item>
     </ion-list>
+
+    <ion-button color="primary" expand="block" (click)="save()">Save</ion-button>
+    <!-- antes fazia como comentário abaixo, mudou, veja como é agora: https://ionicframework.com/docs/api/button -->
     <!--<button ion-button block (click)="save()">Save</button>-->
-    <ion-button color="primary"  expand="block">Save</ion-button>
 </ion-content>

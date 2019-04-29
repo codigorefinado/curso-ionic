@@ -1,16 +1,22 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DetailsPage} from '../page/details/details.page';
 import {ModalController} from '@ionic/angular';
+import {BirthdayService} from '../service/birthday.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
     public birthdays = [];
 
-    constructor(private modalCtrl: ModalController) {
+    constructor(private birthdayService: BirthdayService,
+                private modalCtrl: ModalController) {
+    }
+
+    ngOnInit() {
+        this.birthdayService.getAll();
     }
 
     async showDetail(birthday) {
