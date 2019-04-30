@@ -62,3 +62,11 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+
+/** PouchDB
+ * https://github.com/angular/angular-cli/issues/9827#issuecomment-386154063
+ *
+ * https://github.com/pouchdb/pouchdb/issues/7263
+ */
+(window as any).global = window;

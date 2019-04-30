@@ -2,17 +2,11 @@
     <ion-toolbar>
         <ion-title>{{ action }} Birthday</ion-title>
 
-        <ion-buttons slot="end">
+        <ion-buttons slot="end" *ngIf="!isNew">
             <ion-button (click)="delete()"> <!-- Ver: https://ionicframework.com/docs/api/button -->
                 <ion-icon name="trash"></ion-icon>
             </ion-button>
         </ion-buttons>
-
-        <!--<ion-buttons end *ngIf="!isNew">-->
-        <!--<button ion-button (click)="delete()">-->
-        <!--<ion-icon name="trash"></ion-icon>-->
-        <!--</button>-->
-        <!--</ion-buttons>-->
 
     </ion-toolbar>
 </ion-header>
@@ -22,12 +16,15 @@
     <ion-list>
         <ion-item>
             <ion-label>Name</ion-label>
-            <!--<ion-input text-right type="text" [(ngModel)]="birthday.Name"></ion-input>-->
-            <ion-input class="ion-text-end" type="text" value="Clayton Passos"></ion-input>
+            <ion-input class="ion-text-end" type="text" [(ngModel)]="birthday.name"></ion-input>
+            <!--<ion-input class="ion-text-end" type="text" value="Clayton Passos"></ion-input>-->
         </ion-item>
         <ion-item>
+
             <ion-label>Birthday</ion-label>
-            <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [value]="'2012-12-19T06:01:17.171Z'">
+
+            <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate">
+            <!--<ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [value]="'2012-12-19T06:01:17.171Z'">-->
             </ion-datetime>
         </ion-item>
     </ion-list>

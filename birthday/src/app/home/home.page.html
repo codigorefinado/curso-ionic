@@ -1,44 +1,28 @@
 <ion-header>
     <ion-toolbar> <!-- Antes utilizavamos <ion-navbar> -->
-        <ion-title>
-            🎂 Birthdays 🎉
-        </ion-title>
+        <ion-title> 🎂 Birthdays 🎉</ion-title>
 
-        <ion-buttons  slot="end"> <!-- antes era assim: <ion-buttons end> -->
+        <ion-buttons slot="end"> <!-- antes era assim: <ion-buttons end> -->
             <ion-button (click)="showDetail()">
                 <!-- antes era assim: <button ion-button (click)="showDetail()">-->
-                <ion-icon name="add" ></ion-icon>
+                <ion-icon name="add"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list inset>
+    <ion-list inset="true">
 
-        <ion-item>
-            <div slot="start">Clayton Passos</div> <!-- Antes era assim <div item-left>  ver: https://ionicframework.com/docs/api/item-->
-            <div slot="end"> 29/06/1980</div> <!-- Antes era assim  <div item-right> -->
+        <ion-item *ngFor="let birthday of birthdays" (click)="showDetail(birthday)">
+            <div slot="start">{{ birthday.name }}</div> <!-- ante era assim:  <div item-left>{{ birthday.Name }}</div>  ver: https://ionicframework.com/docs/api/item--->
+            <div slot="end">{{ birthday.date }}</div> <!-- Antes era assim  <div item-right> -->
         </ion-item>
 
-        <ion-item>
-            <div slot="start">Daniela</div>
-            <div slot="end"> 02/07/1982</div>
-        </ion-item>
-
-        <ion-item>
-            <div slot="start">Catherine</div>
-            <div slot="end"> 01/01/2008</div>
-        </ion-item>
-
-        <ion-item>
-            <div slot="start">Sophia</div>
-            <div slot="end"> 10/05/2014</div>
-        </ion-item>
-
-        <!--<ion-item *ngFor="let birthday of birthdays" (click)="showDetail(birthday)">-->
-        <!--<div item-left>{{ birthday.Name }}</div>-->
-        <!--<div item-right>{{ birthday.Date | date:'yMMMMd' }}</div>-->
+        <!-- valor estático, serve de modelo -->
+        <!--<ion-item>-->
+            <!--<div slot="start">Daniela</div>-->
+            <!--<div slot="end"> 02/07/1982</div>-->
         <!--</ion-item>-->
     </ion-list>
 </ion-content>
