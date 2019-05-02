@@ -16,7 +16,7 @@
 
         <ion-item *ngFor="let birthday of birthdays" (click)="showDetail(birthday)">
             <div slot="start">{{ birthday.name }}</div> <!-- ante era assim:  <div item-left>{{ birthday.Name }}</div>  ver: https://ionicframework.com/docs/api/item--->
-            <div slot="end">{{ birthday.date }}</div> <!-- Antes era assim  <div item-right> -->
+            <div slot="end">{{ birthday.date  | date:'y/MMMM/dd'}}</div> <!-- Antes era assim  <div item-right> -->
         </ion-item>
 
         <!-- valor estático, serve de modelo -->

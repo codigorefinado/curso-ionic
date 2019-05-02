@@ -18,12 +18,20 @@ export class HomePage implements OnInit {
     }
 
     ngOnInit() {
+        this.platform.ready().then(() => {
+            this.birthdayService.initDB();
 
+            this.birthdayService.getAll().then(data => {
+                this.zone.run(() => {
+                    this.birthdays = data;
+                });
+            }).catch(console.error.bind(console));
+        });
     }
 
-    ionViewDidEnter() {
-        this.init();
-    }
+    // ionViewDidEnter() {
+    //     this.init();
+    // }
 
     init() {
         this.platform.ready().then(() => {
